@@ -1,0 +1,20 @@
+<resources>
+
+    <style name="Widget.Theme.Mindo_kotlin.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+    <style name="hm_dialog" parent="Theme.AppCompat.DayNight.DialogWhenLarge">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
+    </style>
+
+    <style name="fab" parent="ThemeOverlay.Material3.Button">
+        <item name="android:text">+</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="background">@drawable/btn_add</item>
+
+    </style>
+
+</resources>

@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Mindo</string>
+    <string name="cd_main_homework_card_img">Image that describe the homework</string>
+    <string name="cd_main_homework_card_difficult">Difficult?</string>
+    <string name="cd_main_homework_card_btn_dismiss">Dismiss</string>
+    <string name="cd_main_homework_card_btn_done">Done</string>
+    <string name="cd_main_courses_card_duration">Duration</string>
+    <string name="hint_start">Start</string>
+    <string name="hint_end">End</string>
+    <string name="today_homework">Toaday s homeworks</string>
+    <string name="today_courses">Toaday s courses</string>
+    <string name="page_goals">Goals</string>
+    <string name="page_homeworks">Homeworks</string>
+    <string name="page_home">Home</string>
+    <string name="page_courses">Courses</string>
+    <string name="page_schedule">Schedule</string>
+    <string name="importance">Importence</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="alarm">Alarm</string>
+    <string name="set">Set</string>
+    <string name="inset">Inset</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title">Title</string>
+    <string name="Description">Description</string>
+    <string name="easy">Easy</string>
+    <string name="intermediate">Intermediate</string>
+    <string name="hard">Hard</string>
+    <string name="low">Low</string>
+    <string name="Medium">Medium</string>
+    <string name="high">High</string>
+    <string name="add_homework">Add homework</string>
+    <string name="add_course">Add course</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
+    <string name="time">Time</string>
+    <string name="no_homework">There are no homeworks today</string>
+    <string name="no_course">There are no courses today</string>
+</resources>

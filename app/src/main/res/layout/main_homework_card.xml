@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="222dp"
+    android:layout_height="210dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="7dp"
+
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@color/main_blue">
+
+            <TextView
+                android:id="@+id/hm_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Class"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+
+                />
+
+            <TextView
+                android:id="@+id/hm_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="desc"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:layout_margin="10dp"
+                android:textColor="@color/white"
+                android:maxHeight="80dp"
+
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/alef"
+            android:text="@string/cd_main_homework_card_difficult"
+            android:textSize="14sp"
+            android:layout_weight="1"
+
+
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:contentDescription="happy"
+                app:srcCompat="@drawable/smile" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/sad"
+                android:layout_weight="1"
+                android:contentDescription="sad"
+                />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/hm_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:indeterminate="false"
+            android:max="3"
+            android:progress="1"
+            android:layout_weight="1"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/lijnjh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/hm_dismiss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/alef"
+                android:text="@string/cd_main_homework_card_btn_dismiss"
+                android:gravity="center_horizontal"
+
+                android:textColor="@color/main_blue" />
+
+            <TextView
+                android:id="@+id/hm_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/alef"
+                android:text="@string/cd_main_homework_card_btn_done"
+                android:textColor="@color/main_blue"
+                android:gravity="center_horizontal"
+
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

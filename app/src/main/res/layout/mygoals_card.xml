@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="11dp"
+    >
+
+    <TextView
+        android:id="@+id/tv_goal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="TextView"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+        <TextView
+            android:id="@+id/hm_dismiss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/alef"
+            android:text="@string/cd_main_homework_card_btn_dismiss"
+            android:gravity="center"
+            android:textColor="@color/main_blue"
+            android:layout_margin="10dp"
+            />
+
+        <TextView
+            android:id="@+id/main_home_work_card_done"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/alef"
+            android:text="@string/cd_main_homework_card_btn_done"
+            android:textColor="@color/main_blue"
+            android:gravity="center"
+
+            />
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
