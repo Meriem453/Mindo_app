@@ -17,12 +17,20 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_margin="10dp"
+        android:background="@drawable/btn_add"
         android:clickable="true"
+        android:focusable="true"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="Add"
-        android:focusable="true"
-        android:theme="@style/fab"
-          android:background="@drawable/btn_add"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

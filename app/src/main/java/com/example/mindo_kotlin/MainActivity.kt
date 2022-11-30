@@ -64,7 +64,8 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.page_home -> {
-
+                    val intent=Intent(c,MainActivity::class.java)
+                    startActivity(intent)
 
                     true
                 }

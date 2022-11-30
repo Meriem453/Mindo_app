@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.Mindo_kotlin" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/main_red</item>
+        <item name="colorPrimaryVariant">@color/main_blue</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondary">@color/main_red</item>
+        <item name="colorSecondaryVariant">@color/main_red</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
@@ -15,7 +15,7 @@
     </style>
 
     <style name="ThemeOverlay.Mindo_kotlin.FullscreenContainer" parent="">
-        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
-        <item name="fullscreenTextColor">@color/light_blue_A400</item>
+        <item name="fullscreenBackgroundColor">@color/main_red</item>
+        <item name="fullscreenTextColor">@color/main_red</item>
     </style>
 </resources>

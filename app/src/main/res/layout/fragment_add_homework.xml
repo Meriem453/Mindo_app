@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="@string/add_homework"
+
             android:textColor="@color/white"
             android:textSize="20sp"
             />
@@ -70,9 +70,9 @@
             android:id="@+id/addhomexork_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColorHint="#616161"
+            android:maxLength="20"
             android:textColor="@color/main_blue"
-            />
+            android:textColorHint="#616161" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,11 +96,11 @@
             android:id="@+id/addhomework_desc"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:textColorHint="#616161"
+            android:maxLength="50"
+
+
             android:textColor="@color/black"
-
-
-            />
+            android:textColorHint="#616161" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

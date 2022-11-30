@@ -26,6 +26,13 @@ data class Homework(
     @ColumnInfo(name = "Imp")val Imp:Int
 
 ):java.io.Serializable
+@Entity
+data class Goal(
+           @PrimaryKey val gid:Int,
+                @ColumnInfo (name="Text")val Text:String,
+                @ColumnInfo (name="Last")val Last:String
+
+                )
 
 
 @Dao
@@ -58,10 +65,25 @@ interface HomeworkDao{
 
 
 }
-@Database(entities = [Course::class,Homework::class], version = 1)
+
+@Dao
+interface goalDao{
+    @Query("SELECT * FROM goal")
+    fun getAll():List<Goal>
+
+    @Insert
+    fun insert(goal: Goal)
+
+    @Delete
+    fun delete(goal: Goal)
+
+
+}
+@Database(entities = [Course::class,Homework::class,Goal::class], version = 1)
 abstract class AppDatabase(): RoomDatabase(){
     abstract fun courseDao():CourseDao
     abstract fun homeworkDao():HomeworkDao
+    abstract fun goalDao():goalDao
 
     companion object DataBase{
         fun getInstance(c: Context) :AppDatabase{

@@ -9,12 +9,5 @@
         <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
     </style>
 
-    <style name="fab" parent="ThemeOverlay.Material3.Button">
-        <item name="android:text">+</item>
-        <item name="android:textSize">20sp</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="background">@drawable/btn_add</item>
-
-    </style>
 
 </resources>

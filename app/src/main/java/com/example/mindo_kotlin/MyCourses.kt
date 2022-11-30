@@ -1,5 +1,6 @@
 package com.example.mindo_kotlin
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,14 +13,14 @@ import com.example.mindo_kotlin.databinding.ActivityMyCoursesBinding
 class MyCourses : AppCompatActivity(),onSaveClicked {
     lateinit var binding:ActivityMyCoursesBinding
  lateinit var CRadapter:Courses_Mycourses_adapter_fid
-
+lateinit var c:Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_courses)
         binding=ActivityMyCoursesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        c=baseContext
 
         val CRLayoutManager: RecyclerView.LayoutManager=
             LinearLayoutManager(this, RecyclerView.VERTICAL,false)
@@ -36,7 +37,46 @@ class MyCourses : AppCompatActivity(),onSaveClicked {
             add_course_fragement.show(supportFragmentManager,null)
 
         })
+        binding.bottomNavigation.inflateMenu(R.menu.bottom_navigation_menu)
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when(item.itemId){
 
+                R.id.page_homeworks -> run {
+
+                    val intent=Intent(c,MyHomeworks::class.java)
+
+                    startActivity(intent)
+
+
+                    true
+                }
+                R.id.page_home -> {
+                    val intent=Intent(c,MainActivity::class.java)
+                    startActivity(intent)
+
+                    true
+                }
+                R.id.page_courses -> {
+                    val intent=Intent(c,MyCourses::class.java)
+
+                    startActivity(intent)
+
+                    true
+                }
+                R.id.page_schedule -> {
+
+
+                    true
+                }
+                R.id.page_goals -> {
+                    val intent=Intent(c,Mygoals::class.java)
+                    startActivity(intent)
+
+                    true
+                }
+                else -> false
+            }
+        }
 
 
 

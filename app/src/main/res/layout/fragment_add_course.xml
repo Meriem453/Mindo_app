@@ -69,6 +69,7 @@
             android:id="@+id/addcourse_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength="20"
             android:textColor="@color/main_blue"
             android:textColorHint="#616161" />
 
@@ -94,11 +95,11 @@
             android:id="@+id/addcourse_desc"
             android:layout_width="match_parent"
             android:layout_height="160dp"
+            android:maxLength="50"
+
+
             android:textColor="@color/black"
-            android:textColorHint="#616161"
-
-
-            />
+            android:textColorHint="#616161" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

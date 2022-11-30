@@ -15,7 +15,7 @@
         <activity
             android:name=".Mygoals"
             android:exported="false"
-            android:parentActivityName=".MainActivity">
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -23,7 +23,7 @@
         <activity
             android:name=".My_notifications"
             android:exported="false"
-            android:parentActivityName=".MainActivity">
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -38,7 +38,7 @@
         <activity
             android:name=".MyCourses"
             android:exported="false"
-            android:parentActivityName=".MainActivity">
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -46,7 +46,7 @@
         <activity
             android:name=".MyHomeworks"
             android:exported="false"
-            android:parentActivityName=".MainActivity">
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
