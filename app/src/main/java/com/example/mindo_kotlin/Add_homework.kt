@@ -86,7 +86,7 @@ class Add_homework (var c:Context,var onSaveClicked: onSaveClicked): DialogFragm
             val Title=title.text.toString()
             val Desc=desc.text.toString()
             val randomNumber = (1..10000).random()
-            db.homeworkDao().insert(Homework(randomNumber,Title,Desc,Diff,Imp))
+            db.homeworkDao().insert(Homework(randomNumber,Title,Desc,Diff,Imp,""))
             onSaveClicked.saveClicked()
             this.dismiss()
 

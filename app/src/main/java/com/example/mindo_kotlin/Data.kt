@@ -13,7 +13,8 @@ data class Course(
     @ColumnInfo (name="TimeStar") val TimeStart:String?,
     @ColumnInfo (name="TimeEnd") val TimeEnd:String?,
     @ColumnInfo (name="Imp") val Imp:Int,
-    @ColumnInfo (name="Alarm") val Alarm:Boolean
+    @ColumnInfo (name="Alarm") val Alarm:Boolean,
+    @ColumnInfo (name="Class") val Class:String
 
 ):java.io.Serializable
 
@@ -23,16 +24,25 @@ data class Homework(
     @ColumnInfo(name = "Title")val Title: String?,
     @ColumnInfo(name="Desc")val Desc: String?,
     @ColumnInfo(name="Diff")val Diff:Int,
-    @ColumnInfo(name = "Imp")val Imp:Int
+    @ColumnInfo(name = "Imp")val Imp:Int,
+    @ColumnInfo (name = "Class") val Class: String
 
 ):java.io.Serializable
 @Entity
 data class Goal(
            @PrimaryKey val gid:Int,
                 @ColumnInfo (name="Text")val Text:String,
-                @ColumnInfo (name="Last")val Last:String
+                @ColumnInfo (name="Last")val Last:String,
+           @ColumnInfo (name="Class") val Class: String
 
                 )
+
+
+@Entity
+data class Class(
+    @PrimaryKey val cls:String,
+    @ColumnInfo (name="nbr") val nbr:Int
+)
 
 
 @Dao
@@ -42,6 +52,8 @@ interface CourseDao{
 
     @Query("SELECT * FROM course WHERE cid IN (:courseId) LIMIT 1")
     fun loadById(courseId: Int): Course
+
+
 
     @Insert
     fun insert (vararg course: Course)
@@ -79,11 +91,28 @@ interface goalDao{
 
 
 }
-@Database(entities = [Course::class,Homework::class,Goal::class], version = 1)
+
+@Dao
+interface classDao{
+    @Query("SELECT cls FROM class")
+    fun getClasses():List<String>
+    @Query ("SELECT * FROM class")
+    fun getAll():List<com.example.mindo_kotlin.Class>
+    @Delete
+    fun delete(Class:com.example.mindo_kotlin.Class)
+
+    @Insert
+    fun insert(Class: com.example.mindo_kotlin.Class)
+
+   @Query("UPDATE class SET nbr=(:nbr) WHERE cls=(:cls)")
+   fun editClass(nbr: Int,cls: String)
+}
+@Database(entities = [Course::class,Homework::class,Goal::class,com.example.mindo_kotlin.Class::class], version = 1)
 abstract class AppDatabase(): RoomDatabase(){
     abstract fun courseDao():CourseDao
     abstract fun homeworkDao():HomeworkDao
     abstract fun goalDao():goalDao
+    abstract fun classDao():classDao
 
     companion object DataBase{
         fun getInstance(c: Context) :AppDatabase{

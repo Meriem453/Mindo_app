@@ -105,7 +105,7 @@ class Add_course (var c :Context,var onsaveclicked:onSaveClicked): DialogFragmen
             val TimeEnd=timeend.text.toString()
             val Alarm=alarm.isChecked
             val randomNumber = (1..10000).random()
-            db.courseDao().insert(Course(randomNumber,Title,Desc,TimeStart,TimeEnd,Imp,Alarm))
+            db.courseDao().insert(Course(randomNumber,Title,Desc,TimeStart,TimeEnd,Imp,Alarm,""))
             onsaveclicked.saveClicked()
             this.dismiss()
         })

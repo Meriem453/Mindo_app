@@ -45,46 +45,6 @@ lateinit var c:Context
 
         })
 
-        bind.bottomNavigation.inflateMenu(R.menu.bottom_navigation_menu)
-        bind.bottomNavigation.setOnNavigationItemSelectedListener { item ->
-            when(item.itemId){
-
-                R.id.page_homeworks -> run {
-
-                    val intent= Intent(c,MyHomeworks::class.java)
-
-                    startActivity(intent)
-
-
-                    true
-                }
-                R.id.page_home -> {
-                    val intent= Intent(c,MainActivity::class.java)
-                    startActivity(intent)
-
-                    true
-                }
-                R.id.page_courses -> {
-                    val intent= Intent(c,MyCourses::class.java)
-
-                    startActivity(intent)
-
-                    true
-                }
-                R.id.page_schedule -> {
-
-
-                    true
-                }
-                R.id.page_goals -> {
-                    val intent= Intent(c,Mygoals::class.java)
-                    startActivity(intent)
-
-                    true
-                }
-                else -> false
-            }
-        }
 
 
     }
