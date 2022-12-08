@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.database.sqlite.SQLiteConstraintException
 import android.net.Uri.Builder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
@@ -56,25 +58,21 @@ class MainActivity : AppCompatActivity() {
         binding.crRec.adapter=CRadapter
         //bottom navigation bare listeners
 
-        /*val db=AppDatabase.getInstance(baseContext)
-        db.classDao().insert(com.example.mindo_kotlin.Class("Elec",1))
-        db.classDao().insert(com.example.mindo_kotlin.Class("Algo",2))*/
-binding.classesRec.layoutManager=LinearLayoutManager(this,RecyclerView.VERTICAL,false)
+
+        binding.classesRec.layoutManager=LinearLayoutManager(this,RecyclerView.VERTICAL,false)
         binding.classesRec.adapter=Class_drawer_adapter(baseContext)
 
 binding.clsAdd.setOnClickListener (View.OnClickListener {
 
 
+val fragement=BlankFragment(baseContext)
+    fragement.show(supportFragmentManager,null)
 
 
 
 
-    val builder=AlertDialog.Builder(c)
-    val viewGroup = findViewById<ViewGroup>(android.R.id.content);
-    val dialogView=LayoutInflater.from(c).inflate(R.layout.add_class_fragment,viewGroup,false)
-    builder.setView(dialogView)
-    val alertDialg=builder.create()
-    alertDialg.show()
+
+
 
 
 })

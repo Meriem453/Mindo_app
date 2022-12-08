@@ -125,6 +125,9 @@
             app:layout_constraintTop_toBottomOf="@+id/text">
 
         </androidx.recyclerview.widget.RecyclerView>
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
@@ -132,20 +135,29 @@
         android:id="@+id/bottom_navigation"
         android:layout_gravity="start"
         >
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/classes_rec"
-            />
-<TextView
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="+ Add a class"
-    android:textSize="20sp"
-    android:id="@+id/cls_add"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/classes_rec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
 
-    />
+        <TextView
+            android:id="@+id/cls_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+ Add a class"
+            android:textSize="20sp"
+            android:layout_margin="10dp"
+            android:textStyle="bold"
+            android:textColor="@color/main_blue"
 
+
+            />
+</LinearLayout>
 
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>

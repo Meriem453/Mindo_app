@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
@@ -16,20 +17,23 @@ class Class_drawer_adapter (var c:Context): RecyclerView.Adapter<Class_drawer_ad
     var arr=db.classDao().getAll()
   inner class ClassHolder(itemView: View) : ViewHolder(itemView){
       val text=itemView.findViewById<TextView>(R.id.clstext)
-      val img=itemView.findViewById<ImageView>(R.id.clsimg)
+      //val img=itemView.findViewById<ImageView>(R.id.clsimg)
 
   }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassHolder {
         val itemView=LayoutInflater.from(c).inflate(R.layout.text,parent,false)
+
         return ClassHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ClassHolder, position: Int) {
-        holder.text.text=arr.get(position).cls
+
+       holder.text.text=arr.get(position).cls
     }
 
     override fun getItemCount(): Int {
+
         return arr.size
     }
 
