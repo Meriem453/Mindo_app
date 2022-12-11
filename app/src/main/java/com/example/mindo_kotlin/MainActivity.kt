@@ -21,10 +21,10 @@ import androidx.room.RoomDatabase
 import com.example.mindo_kotlin.databinding.ActivityMainBinding
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),onSaveClicked {
     private lateinit var binding: ActivityMainBinding
     lateinit var c:Context
-
+lateinit var cladapter:Class_drawer_adapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,12 +60,13 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.classesRec.layoutManager=LinearLayoutManager(this,RecyclerView.VERTICAL,false)
-        binding.classesRec.adapter=Class_drawer_adapter(baseContext)
+        cladapter=Class_drawer_adapter(baseContext)
+        binding.classesRec.adapter=cladapter
 
 binding.clsAdd.setOnClickListener (View.OnClickListener {
 
 
-val fragement=BlankFragment(baseContext)
+val fragement=BlankFragment(baseContext,this)
     fragement.show(supportFragmentManager,null)
 
 
@@ -93,6 +94,10 @@ val fragement=BlankFragment(baseContext)
     fun menuClick(view: View) {
 
         binding.top.open()
+    }
+
+    override fun saveClicked() {
+        cladapter.edit()
     }
 
 }

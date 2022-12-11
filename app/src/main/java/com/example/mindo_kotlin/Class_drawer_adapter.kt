@@ -1,6 +1,7 @@
 package com.example.mindo_kotlin
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,10 +20,12 @@ class Class_drawer_adapter (var c:Context): RecyclerView.Adapter<Class_drawer_ad
       val text=itemView.findViewById<TextView>(R.id.clstext)
       //val img=itemView.findViewById<ImageView>(R.id.clsimg)
 
+
   }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassHolder {
         val itemView=LayoutInflater.from(c).inflate(R.layout.text,parent,false)
+
 
         return ClassHolder(itemView)
     }
@@ -30,12 +33,23 @@ class Class_drawer_adapter (var c:Context): RecyclerView.Adapter<Class_drawer_ad
     override fun onBindViewHolder(holder: ClassHolder, position: Int) {
 
        holder.text.text=arr.get(position).cls
+        holder.itemView.setOnClickListener {
+            var intent=Intent(c,Class_items::class.java)
+            intent.putExtra("Class",arr.get(position).cls)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            c.startActivity(intent)
+
+
+        }
     }
 
     override fun getItemCount(): Int {
 
         return arr.size
     }
-
+fun edit(){
+    arr=db.classDao().getAll()
+    notifyDataSetChanged()
+}
 
 }

@@ -10,8 +10,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RadioGroup
 import android.widget.Switch
+import android.widget.TextView
 import androidx.core.view.get
 import androidx.fragment.app.DialogFragment
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_CLOCK
@@ -37,32 +39,16 @@ class Add_course (var c :Context,var onsaveclicked:onSaveClicked): DialogFragmen
         val save=view.findViewById<ImageView>(R.id.addcourse_save)
         val title=view.findViewById<TextInputEditText>(R.id.addcourse_title)
         val desc=view.findViewById<TextInputEditText>(R.id.addcourse_desc)
-        val timestart=view.findViewById<TextInputEditText>(R.id.addcourse_timestart)
-        val timeend=view.findViewById<TextInputEditText>(R.id.addcourse_timeend)
-        val imp=view.findViewById<RadioGroup>(R.id.addcourse_imp)
+        val timestart=view.findViewById<TextView>(R.id.addcourse_timestart)
+        val timeend=view.findViewById<TextView>(R.id.addcourse_timeend)
+        val date=view.findViewById<TextView>(R.id.addcr_date)
+
         val alarm=view.findViewById<Switch>(R.id.addcourse_alarm)
         val close=view.findViewById<ImageView>(R.id.addcourse_close)
 
         var Imp=0
 
-       imp.setOnCheckedChangeListener { radioGroup, i ->
-           when(i){
-               R.id.addcourse_low->{
-                   Imp=1
-               }
-               R.id.addcourse_medium->{
-                   Imp=2
-               }
-               R.id.addcourse_high->{
-                   Imp=3
-               }
-               else->{
-                   Imp=0
-               }
 
-           }
-
-       }
         val db=AppDatabase.getInstance(c)
 
         timestart.setOnClickListener(View.OnClickListener {
@@ -97,6 +83,15 @@ class Add_course (var c :Context,var onsaveclicked:onSaveClicked): DialogFragmen
             }
 
         })
+
+        date.setOnClickListener {
+
+               val builder= MaterialDatePicker.Builder.datePicker().setTitleText("Select date").setSelection(MaterialDatePicker.todayInUtcMilliseconds()).build()
+                builder.show(parentFragmentManager,"tag")
+
+
+
+        }
 
         save.setOnClickListener(View.OnClickListener {
             val Title=title.text.toString()

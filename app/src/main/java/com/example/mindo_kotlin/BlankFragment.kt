@@ -13,7 +13,7 @@ import androidx.fragment.app.DialogFragment
 import com.example.mindo_kotlin.Class
 
 
-class BlankFragment (var c:Context): DialogFragment() {
+class BlankFragment (var c:Context,var onSaveClicked: onSaveClicked): DialogFragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +35,7 @@ class BlankFragment (var c:Context): DialogFragment() {
         add.setOnClickListener {
             try {
                 db.classDao().insert(com.example.mindo_kotlin.Class(edit.text.toString(),125))
+                onSaveClicked.saveClicked()
                 this.dismiss()
             }catch (e:Exception){
                 Toast.makeText(c,"This class already exists",Toast.LENGTH_SHORT).show()

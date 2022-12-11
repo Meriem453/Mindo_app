@@ -17,7 +17,7 @@
     <string name="importance">Importence</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
-    <string name="alarm">Alarm</string>
+    <string name="alarm">Notification</string>
     <string name="set">Set</string>
     <string name="inset">Inset</string>
     <string name="dummy_button">Dummy Button</string>
@@ -38,4 +38,6 @@
     <string name="time">Time</string>
     <string name="no_homework">There are no homeworks today</string>
     <string name="no_course">There are no courses today</string>
+ <string name="page_tasks">Tasks</string>
+    <string name="resources">Resources</string>
 </resources>
