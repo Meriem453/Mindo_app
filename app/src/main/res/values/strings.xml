@@ -38,6 +38,6 @@
     <string name="time">Time</string>
     <string name="no_homework">There are no homeworks today</string>
     <string name="no_course">There are no courses today</string>
- <string name="page_tasks">Tasks</string>
+    <string name="page_tasks">Tasks</string>
     <string name="resources">Resources</string>
 </resources>

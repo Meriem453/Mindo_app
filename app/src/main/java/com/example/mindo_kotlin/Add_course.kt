@@ -1,23 +1,22 @@
 package com.example.mindo_kotlin
 
 import android.content.Context
-import android.icu.text.CaseMap.Title
 import android.os.Bundle
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RadioGroup
 import android.widget.Switch
 import android.widget.TextView
-import androidx.core.view.get
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_CLOCK
 import com.google.android.material.timepicker.TimeFormat
+import java.util.Calendar
+import java.util.Date
+import java.util.TimeZone
 
 
 class Add_course (var c :Context,var onsaveclicked:onSaveClicked): DialogFragment() {
@@ -88,7 +87,15 @@ class Add_course (var c :Context,var onsaveclicked:onSaveClicked): DialogFragmen
 
                val builder= MaterialDatePicker.Builder.datePicker().setTitleText("Select date").setSelection(MaterialDatePicker.todayInUtcMilliseconds()).build()
                 builder.show(parentFragmentManager,"tag")
+            builder.addOnPositiveButtonClickListener {
+                val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
+                calendar.time = Date(it)
+                date.text = "${calendar.get(Calendar.DAY_OF_MONTH)}-" +
+                        "${calendar.get(Calendar.MONTH) + 1}-${calendar.get(Calendar.YEAR)}"
 
+
+
+            }
 
 
         }
