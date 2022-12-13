@@ -40,4 +40,6 @@
     <string name="no_course">There are no courses today</string>
     <string name="page_tasks">Tasks</string>
     <string name="resources">Resources</string>
+    <string name="channel_name">first_channel</string>
+    <string name="channel_description">notification_channel</string>
 </resources>
