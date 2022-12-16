@@ -13,8 +13,10 @@ import android.os.Bundle
 import android.os.SystemClock
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mindo_kotlin.databinding.ActivityMainBinding
@@ -27,15 +29,9 @@ class MainActivity : AppCompatActivity(),onSaveClicked {
 lateinit var cladapter:Class_drawer_adapter
 
 
-    //used for register alarm manager
-    var pendingIntent: PendingIntent? = null
 
-    //used to store running alarmmanager instance
-    var alarmManager: AlarmManager? = null
 
-    //Callback function for Alarmmanager event
-    var mReceiver: BroadcastReceiver? = null
-
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -66,7 +62,7 @@ lateinit var cladapter:Class_drawer_adapter
         binding.crRec.layoutManager = CRLayoutManager2
         val CRadapter = Courses_main_adapter_fid(baseContext)
         binding.crRec.adapter = CRadapter
-        //bottom navigation bare listeners
+        //drawer layout  listeners
 
 
         binding.classesRec.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
@@ -82,56 +78,35 @@ lateinit var cladapter:Class_drawer_adapter
 
         })
 
-        //set the notifacation
+        //create notification channel
+        //
+        if(Build.VERSION.SDK>=Build.VERSION_CODES.O.toString()){
+            val name="2003" as CharSequence
+//
+            val notif_channel=NotificationChannel(CHANNEL_ID,name,NotificationManager.IMPORTANCE_HIGH)
+            notif_channel.description=R.string.channel_description.toString()
+            val notif_mnge=getSystemService(NotificationManager::class.java)
+            notif_mnge.createNotificationChannel(notif_channel)
 
 
-//create a channel
-          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = getString(R.string.channel_name)
-            val descriptionText = getString(R.string.channel_description)
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-                description = descriptionText
-            }
-            // Register the channel with the system
-            val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
+
+            //set the alarm
+            val alarm_mngr=getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val intent=Intent(baseContext,Myreceiver::class.java)
+            val pnd_intent=PendingIntent.getBroadcast(baseContext,0,intent,0)
+            alarm_mngr.setInexactRepeating(
+                AlarmManager.ELAPSED_REALTIME_WAKEUP
+                ,SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_FIFTEEN_MINUTES
+                , AlarmManager.INTERVAL_FIFTEEN_MINUTES
+                ,pnd_intent)
+
+
+
         }
 
-        val intent = Intent(this, Welcome::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-        val pendingIntent2: PendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-
-        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.logo)
-            .setContentTitle("Mindo")
-            .setContentText("Good morning!")
-            .setStyle(NotificationCompat.BigTextStyle()
-                .bigText("You didn't submit your work today."))
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .setContentIntent(pendingIntent2)
-            .setAutoCancel(true)
 
 
 
-
-        //alarm
-        val alarmManager =
-            c.getSystemService(Context.ALARM_SERVICE) as? AlarmManager
-        val pendingIntent =
-            PendingIntent.getService(c, 12, intent,
-                PendingIntent.FLAG_NO_CREATE)
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent)
-        }
-        alarmManager?.setInexactRepeating(
-            AlarmManager.ELAPSED_REALTIME_WAKEUP,
-            SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_DAY,
-            AlarmManager.INTERVAL_HALF_DAY,
-            null
-        )
 
 
 
@@ -147,6 +122,16 @@ lateinit var cladapter:Class_drawer_adapter
     fun notifClick(view: View) {
         val intent=Intent(c,My_notifications::class.java)
         startActivity(intent)
+        val builder=NotificationCompat.Builder(c,"2003")
+            .setSmallIcon(R.drawable.logo).setContentTitle("Mindo")
+            .setContentText("Submit your pregress now")
+            .setAutoCancel(true)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            
+
+
+        val notif_mngr= NotificationManagerCompat.from(c)
+        notif_mngr.notify(123,builder.build())
 
     }
 

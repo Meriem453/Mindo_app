@@ -34,7 +34,7 @@ android:id="@+id/toolbar_text"
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         app:cardCornerRadius="15dp"
         android:id="@+id/class_courses"
         >
@@ -55,7 +55,7 @@ android:id="@+id/toolbar_text"
         android:id="@+id/class_homeworks"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         app:cardCornerRadius="15dp">
 
         <TextView
@@ -73,7 +73,7 @@ android:id="@+id/toolbar_text"
         android:id="@+id/class_tasks"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:outlineSpotShadowColor="@color/black"
 
         app:cardCornerRadius="15dp">
@@ -93,7 +93,7 @@ android:id="@+id/toolbar_text"
         android:id="@+id/class_goals"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         app:cardCornerRadius="15dp">
 
         <TextView
@@ -110,7 +110,7 @@ android:id="@+id/toolbar_text"
         android:id="@+id/class_resources"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         app:cardCornerRadius="15dp">
 
         <TextView
