@@ -122,16 +122,7 @@ lateinit var cladapter:Class_drawer_adapter
     fun notifClick(view: View) {
         val intent=Intent(c,My_notifications::class.java)
         startActivity(intent)
-        val builder=NotificationCompat.Builder(c,"2003")
-            .setSmallIcon(R.drawable.logo).setContentTitle("Mindo")
-            .setContentText("Submit your pregress now")
-            .setAutoCancel(true)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
-            
 
-
-        val notif_mngr= NotificationManagerCompat.from(c)
-        notif_mngr.notify(123,builder.build())
 
     }
 

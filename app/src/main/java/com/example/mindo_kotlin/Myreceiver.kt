@@ -7,7 +7,7 @@ import android.content.Intent
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 
-class Myreceiver(var c:Context,var intent :Intent,var channelID:String) : BroadcastReceiver() {
+class Myreceiver(var c:Context,var intent :Intent) : BroadcastReceiver() {
     override fun onReceive(p0: Context?, p1: Intent?) {
         val tnt=Intent(c,Welcome::class.java)
         //
@@ -16,7 +16,7 @@ class Myreceiver(var c:Context,var intent :Intent,var channelID:String) : Broadc
         val pnd=PendingIntent.getActivity(c,0,tnt,0)
 
 
-        val builder=NotificationCompat.Builder(c,channelID)
+        val builder=NotificationCompat.Builder(c,"2003")
             .setSmallIcon(R.drawable.logo).setContentTitle("Mindo")
             .setContentText("Submit your pregress now")
             .setAutoCancel(true)
