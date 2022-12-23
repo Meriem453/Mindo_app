@@ -2,7 +2,6 @@ package com.example.mindo_kotlin
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import androidx.fragment.app.DialogFragment
 import com.example.mindo_kotlin.Class
 
 
-class BlankFragment (var c:Context,var onSaveClicked: onSaveClicked): DialogFragment() {
+class AddClassFragement (var c:Context, var onSaveClicked: onSaveClicked): DialogFragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +33,8 @@ class BlankFragment (var c:Context,var onSaveClicked: onSaveClicked): DialogFrag
 
         add.setOnClickListener {
             try {
-                db.classDao().insert(com.example.mindo_kotlin.Class(edit.text.toString(),125))
+                db.classDao().insert(com.example.mindo_kotlin.Class(edit.text.toString()))
+
                 onSaveClicked.saveClicked()
                 this.dismiss()
             }catch (e:Exception){

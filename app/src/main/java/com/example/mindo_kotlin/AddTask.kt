@@ -9,16 +9,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RadioGroup
 import androidx.fragment.app.DialogFragment
-import com.example.mindo_kotlin.databinding.FragmentAddHomeworkBinding
+import com.example.mindo_kotlin.databinding.FragmentAddTaskBinding
 import com.google.android.material.textfield.TextInputEditText
 
-/**
- * An example full-screen fragment that shows and hides the system UI (i.e.
- * status bar and navigation/system bar) with user interaction.
- */
-class Add_homework (var c:Context,var onSaveClicked: onSaveClicked): DialogFragment() {
-   lateinit var _binding:FragmentAddHomeworkBinding
-   lateinit var db:AppDatabase
+
+class AddTask(var c:Context,var onSaveClicked: onSaveClicked,var Class:String): DialogFragment() {
+    lateinit var _binding:FragmentAddTaskBinding
+    lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,9 +27,9 @@ class Add_homework (var c:Context,var onSaveClicked: onSaveClicked): DialogFragm
         savedInstanceState: Bundle?
     ): View? {
         lateinit var view:View
-        view = inflater.inflate(R.layout.fragment_add_homework,container,false)
-          val save=view.findViewById<ImageView>(R.id.addhomework_save)
-           val close=view.findViewById<ImageView>(R.id.addhomework_close)
+        view = inflater.inflate(R.layout.fragment_add_task,container,false)
+        val save=view.findViewById<ImageView>(R.id.addhomework_save)
+        val close=view.findViewById<ImageView>(R.id.addhomework_close)
         val title=view.findViewById<TextInputEditText>(R.id.addhomexork_title)
         val desc=view.findViewById<TextInputEditText>(R.id.addhomework_desc)
         val imp=view.findViewById<RadioGroup>(R.id.addhomework_imp)
@@ -71,13 +68,13 @@ class Add_homework (var c:Context,var onSaveClicked: onSaveClicked): DialogFragm
                 R.id.addhomework_hard->{
                     Diff=3
                 }else->{
-                    Diff=0
-                }
+                Diff=0
+            }
 
             }
 
         })
-        db=AppDatabase.getInstance(c)
+        db= AppDatabase.getInstance(c)
 
         close.setOnClickListener(View.OnClickListener {
             this.dismiss()
@@ -86,7 +83,7 @@ class Add_homework (var c:Context,var onSaveClicked: onSaveClicked): DialogFragm
             val Title=title.text.toString()
             val Desc=desc.text.toString()
             val randomNumber = (1..10000).random()
-            db.homeworkDao().insert(Homework(randomNumber,Title,Desc,Diff,Imp,""))
+            db.homeworkDao().insert(Task(randomNumber,Title,Desc,Diff,Imp,Class))
             onSaveClicked.saveClicked()
             this.dismiss()
 
@@ -107,3 +104,5 @@ class Add_homework (var c:Context,var onSaveClicked: onSaveClicked): DialogFragm
 
 
 }
+
+

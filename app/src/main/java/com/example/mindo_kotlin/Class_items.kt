@@ -9,6 +9,7 @@ import com.example.mindo_kotlin.databinding.ActivityClassItemsBinding
 class Class_items : AppCompatActivity() {
     lateinit var c:Context
     lateinit var bind:ActivityClassItemsBinding
+    lateinit var Class:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_class_items)
@@ -24,28 +25,29 @@ class Class_items : AppCompatActivity() {
         setContentView(bind.root)
 
         if(intent.extras!=null){
-            bind.toolbarText?.text=intent.getStringExtra("Class")
+            Class= intent.getStringExtra("Class").toString()
+
 
         }
-
+        bind.toolbarText?.text=Class
 
         bind.classCourses?.setOnClickListener {
             intent= Intent(c,MyCourses::class.java)
+            intent.putExtra("Class",Class)
             startActivity(intent)
         }
 
         bind.classHomeworks?.setOnClickListener {
-            intent=Intent(c,MyHomeworks::class.java)
+            intent=Intent(c,MyTasks::class.java)
+            intent.putExtra("Class",Class)
             startActivity(intent)
         }
 
-        bind.classTasks?.setOnClickListener {
-            intent=Intent(c,My_notifications::class.java)
-            startActivity(intent)
-        }
+
 
         bind.classGoals?.setOnClickListener {
             intent=Intent(c,Mygoals::class.java)
+            intent.putExtra("Class",Class)
             startActivity(intent)
         }
 

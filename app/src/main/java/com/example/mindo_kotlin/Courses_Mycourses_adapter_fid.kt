@@ -11,11 +11,11 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class Courses_Mycourses_adapter_fid(var c:Context):
+class Courses_Mycourses_adapter_fid(var c:Context,var Class:String):
     RecyclerView.Adapter<Courses_Mycourses_adapter_fid.MycoursesHolder>() {
 
    val db:AppDatabase=AppDatabase.getInstance(c)
-    var arr=db.courseDao().getAll()
+    var arr=db.courseDao().loadByClass(Class)
 inner class MycoursesHolder(itemView: View) : ViewHolder(itemView){
     val Title:TextView=itemView.findViewById(R.id.mycr_title)
     val Desc:TextView=itemView.findViewById(R.id.mycr_desc)
@@ -61,7 +61,7 @@ inner class MycoursesHolder(itemView: View) : ViewHolder(itemView){
     }
 
     fun dataChanged(){
-        arr=db.courseDao().getAll()
+        arr=db.courseDao().loadByClass(Class)
         notifyDataSetChanged()
 
     }

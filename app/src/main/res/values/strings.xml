@@ -7,10 +7,10 @@
     <string name="cd_main_courses_card_duration">Duration</string>
     <string name="hint_start">Start</string>
     <string name="hint_end">End</string>
-    <string name="today_homework">Toaday s homeworks</string>
+    <string name="today_homework">Toaday s tasks</string>
     <string name="today_courses">Toaday s courses</string>
     <string name="page_goals">Goals</string>
-    <string name="page_homeworks">Homeworks</string>
+    <string name="page_homeworks">Tasks</string>
     <string name="page_home">Home</string>
     <string name="page_courses">Courses</string>
     <string name="page_schedule">Schedule</string>
@@ -36,7 +36,7 @@
     <string name="from">From:</string>
     <string name="to">To:</string>
     <string name="time">Time</string>
-    <string name="no_homework">There are no homeworks today</string>
+    <string name="no_homework">There are no tasks today</string>
     <string name="no_course">There are no courses today</string>
     <string name="page_tasks">Tasks</string>
     <string name="resources">Resources</string>

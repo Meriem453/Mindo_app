@@ -19,7 +19,7 @@ import java.util.Date
 import java.util.TimeZone
 
 
-class Add_course (var c :Context,var onsaveclicked:onSaveClicked): DialogFragment() {
+class Add_course (var c :Context,var onsaveclicked:onSaveClicked,var Class:String): DialogFragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,7 +107,7 @@ class Add_course (var c :Context,var onsaveclicked:onSaveClicked): DialogFragmen
             val TimeEnd=timeend.text.toString()
             val Alarm=alarm.isChecked
             val randomNumber = (1..10000).random()
-            db.courseDao().insert(Course(randomNumber,Title,Desc,TimeStart,TimeEnd,Imp,Alarm,""))
+            db.courseDao().insert(Course(randomNumber,Title,Desc,TimeStart,TimeEnd,Imp,Alarm,Class))
             onsaveclicked.saveClicked()
             this.dismiss()
         })

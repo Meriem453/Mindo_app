@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class HomeWorks_main_adapter_fid(c:Context):
-    RecyclerView.Adapter<HomeWorks_main_adapter_fid.HomeworksHolder>() {
+class Tasks_adapter(c:Context):
+    RecyclerView.Adapter<Tasks_adapter.HomeworksHolder>() {
 val db=AppDatabase.getInstance(c)
     var arr=db.homeworkDao().getAll()
 
@@ -24,7 +24,7 @@ val db=AppDatabase.getInstance(c)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeworksHolder {
 
-        var view=LayoutInflater.from(parent.context).inflate(R.layout.main_homework_card,parent,false)
+        var view=LayoutInflater.from(parent.context).inflate(R.layout.main_task_card,parent,false)
         var holder=HomeworksHolder(view)
         return holder
 

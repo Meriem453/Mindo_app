@@ -4,19 +4,14 @@ import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.View
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mindo_kotlin.databinding.ActivityMainBinding
@@ -51,7 +46,7 @@ lateinit var cladapter:Class_drawer_adapter
         val HMlayoutManager: RecyclerView.LayoutManager =
             LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         binding.hwRec.setLayoutManager(HMlayoutManager)
-        val HMadapter = HomeWorks_main_adapter_fid(baseContext)
+        val HMadapter = Tasks_adapter(baseContext)
 
         binding.hwRec.adapter = HMadapter
 
@@ -72,7 +67,7 @@ lateinit var cladapter:Class_drawer_adapter
         binding.clsAdd.setOnClickListener(View.OnClickListener {
 
 
-            val fragement = BlankFragment(baseContext, this)
+            val fragement = AddClassFragement(baseContext, this)
             fragement.show(supportFragmentManager, null)
 
 

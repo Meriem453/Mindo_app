@@ -14,12 +14,13 @@ data class Course(
     @ColumnInfo (name="TimeEnd") val TimeEnd:String?,
     @ColumnInfo (name="Imp") val Imp:Int,
     @ColumnInfo (name="Alarm") val Alarm:Boolean,
-    @ColumnInfo (name="Class") val Class:String
+    @ColumnInfo(name="Class") val Class: String
+
 
 ):java.io.Serializable
 
 @Entity
-data class Homework(
+data class Task(
     @PrimaryKey val hid:Int,
     @ColumnInfo(name = "Title")val Title: String?,
     @ColumnInfo(name="Desc")val Desc: String?,
@@ -39,9 +40,16 @@ data class Goal(
 
 
 @Entity
+data class Resources(
+    @PrimaryKey val rid:Int,
+    @ColumnInfo (name="type") val Type:String,
+    @ColumnInfo (name="val") val Val:String,
+    @ColumnInfo(name="Class") val Class: String
+)
+
+@Entity
 data class Class(
     @PrimaryKey val cls:String,
-    @ColumnInfo (name="nbr") val nbr:Int
 )
 
 
@@ -50,8 +58,8 @@ interface CourseDao{
     @Query("SELECT * FROM course")
     fun getAll(): List<Course>
 
-    @Query("SELECT * FROM course WHERE cid IN (:courseId) LIMIT 1")
-    fun loadById(courseId: Int): Course
+    @Query("SELECT * FROM course WHERE Class IN (:courseClass) ")
+    fun loadByClass(courseClass:String): List<Course>
 
 
 
@@ -65,15 +73,18 @@ interface CourseDao{
 }
 
 @Dao
-interface HomeworkDao{
-    @Query("SELECT * FROM homework")
-    fun getAll():List<Homework>
+interface TaskkDao{
+    @Query("SELECT * FROM task")
+    fun getAll():List<Task>
+
+    @Query("SELECT * FROM task WHERE Class IN (:taskClass) ")
+    fun loadByClass(taskClass:String): List<Task>
 
     @Insert
-    fun insert(homework: Homework)
+    fun insert(homework: Task)
 
     @Delete
-    fun delete(homework: Homework)
+    fun delete(homework: Task)
 
 
 }
@@ -83,6 +94,9 @@ interface goalDao{
     @Query("SELECT * FROM goal")
     fun getAll():List<Goal>
 
+    @Query("SELECT * FROM goal WHERE Class IN (:goalClass) ")
+    fun loadByClass(goalClass:String): List<Goal>
+
     @Insert
     fun insert(goal: Goal)
 
@@ -91,8 +105,21 @@ interface goalDao{
 
 
 }
-
 @Dao
+interface resourceDao {
+    @Query("SELECT * FROM resources")
+    fun getAll(): List<Resources>
+    @Query("SELECT * FROM resources WHERE Class IN (:resourceClass) ")
+    fun loadByClass(resourceClass:String): List<Resources>
+    @Insert
+    fun insert(resources: Resources)
+
+    @Delete
+    fun delete(resources: Resources)
+}
+
+
+    @Dao
 interface classDao{
     @Query("SELECT cls FROM class")
     fun getClasses():List<String>
@@ -104,14 +131,15 @@ interface classDao{
     @Insert
     fun insert(Class: com.example.mindo_kotlin.Class)
 
-   @Query("UPDATE class SET nbr=(:nbr) WHERE cls=(:cls)")
-   fun editClass(nbr: Int,cls: String)
+   /*@Query("UPDATE class SET nbr=(:nbr) WHERE cls=(:cls)")
+   fun editClass(nbr: Int,cls: String)*/
 }
-@Database(entities = [Course::class,Homework::class,Goal::class,com.example.mindo_kotlin.Class::class], version = 1)
+@Database(entities = [Course::class,Task::class,Goal::class,Resources::class,com.example.mindo_kotlin.Class::class], version = 1)
 abstract class AppDatabase(): RoomDatabase(){
     abstract fun courseDao():CourseDao
-    abstract fun homeworkDao():HomeworkDao
+    abstract fun homeworkDao():TaskkDao
     abstract fun goalDao():goalDao
+    abstract fun resourceDao():resourceDao
     abstract fun classDao():classDao
 
     companion object DataBase{

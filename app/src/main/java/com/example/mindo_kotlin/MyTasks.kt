@@ -1,38 +1,37 @@
 package com.example.mindo_kotlin
 
 import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mindo_kotlin.databinding.ActivityMyHomeworksBinding
+import com.example.mindo_kotlin.databinding.ActivityMyTasksBinding
 
-class MyHomeworks : AppCompatActivity(),onSaveClicked{
-    private lateinit var bind: ActivityMyHomeworksBinding
-lateinit var HMadapter:HomeWorks_Myhomeworks_adapter_fid
+class MyTasks : AppCompatActivity(),onSaveClicked{
+    private lateinit var bind: ActivityMyTasksBinding
+lateinit var HMadapter:Tasks_Mytasks_adapter
 lateinit var c:Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_my_homeworks)
+        setContentView(R.layout.activity_my_tasks)
 
         c=baseContext
 
-        bind=ActivityMyHomeworksBinding.inflate(layoutInflater)
+        bind=ActivityMyTasksBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
-
+val Class=intent.getStringExtra("Class").toString()
 
         val f_manager=supportFragmentManager
-        val f_add_homework=Add_homework(baseContext,this)
+        val f_add_homework=AddTask(baseContext,this,Class)
 
 
 
 
         val HMLayoutManager: RecyclerView.LayoutManager=
             LinearLayoutManager(this, RecyclerView.VERTICAL,false)
-         HMadapter=HomeWorks_Myhomeworks_adapter_fid(baseContext)
+         HMadapter=Tasks_Mytasks_adapter(baseContext,Class)
 
 
         bind.myhmHmRec.layoutManager=HMLayoutManager

@@ -11,10 +11,10 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class HomeWorks_Myhomeworks_adapter_fid(var c:Context) :
-    RecyclerView.Adapter<HomeWorks_Myhomeworks_adapter_fid.MyhomeworksAdapter>() {
+class Tasks_Mytasks_adapter(var c:Context,var Class:String) :
+    RecyclerView.Adapter<Tasks_Mytasks_adapter.MyhomeworksAdapter>() {
      var db=AppDatabase.getInstance(c)
-    var arr=db.homeworkDao().getAll()
+    var arr=db.homeworkDao().loadByClass(Class)
 
     inner class MyhomeworksAdapter (itemView: View): ViewHolder(itemView){
         val myHmTitle:TextView=itemView.findViewById(R.id.myhm_title)
@@ -27,7 +27,7 @@ class HomeWorks_Myhomeworks_adapter_fid(var c:Context) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyhomeworksAdapter {
-        val itemView:View=LayoutInflater.from(parent.context).inflate(R.layout.myhomeworks_card,parent,false)
+        val itemView:View=LayoutInflater.from(parent.context).inflate(R.layout.mytasks_card,parent,false)
         val holder=MyhomeworksAdapter(itemView)
         return holder
 
@@ -62,7 +62,7 @@ class HomeWorks_Myhomeworks_adapter_fid(var c:Context) :
 
     fun DataChanged(){
         notifyDataSetChanged()
-        arr=db.homeworkDao().getAll()
+        arr=db.homeworkDao().loadByClass(Class)
 
     }
 }

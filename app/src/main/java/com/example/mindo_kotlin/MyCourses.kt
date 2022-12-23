@@ -21,20 +21,22 @@ lateinit var c:Context
         setContentView(binding.root)
 
         c=baseContext
-
+val Class=intent.getStringExtra("Class").toString()
         val CRLayoutManager: RecyclerView.LayoutManager=
             LinearLayoutManager(this, RecyclerView.VERTICAL,false)
-         CRadapter=Courses_Mycourses_adapter_fid(baseContext)
+         CRadapter=Courses_Mycourses_adapter_fid(baseContext,Class)
 
         binding.mycrCrRec.layoutManager=CRLayoutManager
         binding.mycrCrRec.adapter=CRadapter
 
-        var add_course_fragement=Add_course(baseContext,this)
+        var add_course_fragement=Add_course(baseContext,this, Class)
 
 
         binding.floatingActionButton2.setOnClickListener(View.OnClickListener {
 
-            add_course_fragement.show(supportFragmentManager,null)
+            if (add_course_fragement != null) {
+                add_course_fragement.show(supportFragmentManager,null)
+            }
 
         })
 

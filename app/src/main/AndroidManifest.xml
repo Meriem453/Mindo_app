@@ -44,13 +44,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".Add_homework"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
         <activity
             android:name=".MyCourses"
             android:exported="false">
@@ -59,7 +53,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MyHomeworks"
+            android:name=".MyTasks"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
