@@ -8,12 +8,12 @@
     android:id="@+id/top"
     >
 
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-
 
 
         <androidx.appcompat.widget.Toolbar
@@ -30,8 +30,8 @@
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/ic_menu_sort_by_size"
-                android:onClick="menuClick"/>
+                android:onClick="menuClick"
+                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,6 +70,14 @@
 
         </androidx.appcompat.widget.Toolbar>
 
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/lineChart2"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
@@ -80,9 +88,7 @@
             android:textColor="@color/main_blue"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
+            app:layout_constraintTop_toBottomOf="@+id/lineChart2" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/hw_rec"
@@ -107,11 +113,8 @@
             android:textColor="@color/main_blue"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
 
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/hw_rec" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cr_rec"
@@ -125,10 +128,8 @@
             app:layout_constraintTop_toBottomOf="@+id/text">
 
         </androidx.recyclerview.widget.RecyclerView>
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
