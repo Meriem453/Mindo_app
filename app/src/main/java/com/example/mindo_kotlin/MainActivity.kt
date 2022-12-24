@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.Parcel
 import android.os.SystemClock
 import android.view.View
 import androidx.annotation.RequiresApi
@@ -15,6 +16,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mindo_kotlin.databinding.ActivityMainBinding
+import com.github.mikephil.charting.components.Description
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 
 
 class MainActivity : AppCompatActivity(),onSaveClicked {
@@ -98,6 +103,34 @@ lateinit var cladapter:Class_drawer_adapter
 
 
         }
+
+       val d= Description()
+           d.text="Random vlues"
+binding.lineChart2.description=d
+val ydata=ArrayList<Entry>()
+        val e=Entry()
+        e.data=10
+
+        val e1=Entry()
+        e1.data=20
+
+        val e2=Entry()
+        e2.data=30
+
+ydata.add(e)
+        ydata.add(e1)
+        ydata.add(e2)
+
+        val xdata=ArrayList<String>()
+        xdata.add("nbr1")
+        xdata.add("nbr2")
+        xdata.add("nbr3")
+
+        val lds=LineDataSet(ydata,"Random Values")
+        val ld=LineData(lds)
+        binding.lineChart2.data=ld
+        binding.lineChart2.invalidate()
+
 
 
 
