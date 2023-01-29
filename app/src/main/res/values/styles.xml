@@ -9,5 +9,9 @@
         <item name="android:windowAnimationStyle">@style/Animation.Design.BottomSheetDialog</item>
     </style>
 
+    <style name="MaterialAlertDialog.App" parent="Theme.MaterialComponents.Dialog.Alert">
 
+        <item name="colorPrimary">@color/main_blue</item>
+        <item name="colorSecondary">@color/main_red</item>
+    </style>
 </resources>

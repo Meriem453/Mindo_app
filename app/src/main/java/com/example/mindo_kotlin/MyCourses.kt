@@ -46,5 +46,9 @@ val Class=intent.getStringExtra("Class").toString()
         CRadapter.dataChanged()
     }
 
+    override fun displayDialog(position: Int) {
+
+    }
+
 
 }

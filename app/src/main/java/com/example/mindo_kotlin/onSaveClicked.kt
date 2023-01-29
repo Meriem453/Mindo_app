@@ -4,4 +4,5 @@ interface onSaveClicked {
 
 
     fun saveClicked()
+    fun displayDialog(position:Int)
 }

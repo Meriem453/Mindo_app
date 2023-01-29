@@ -52,5 +52,9 @@ val Class=intent.getStringExtra("Class").toString()
         HMadapter.DataChanged()
     }
 
+    override fun displayDialog(position: Int) {
+
+    }
+
 
 }

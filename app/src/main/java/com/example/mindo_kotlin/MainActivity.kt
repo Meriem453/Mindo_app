@@ -6,13 +6,10 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.os.Parcel
 import android.os.SystemClock
 import android.view.View
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -28,8 +25,7 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
-import com.github.mikephil.charting.utils.ColorTemplate
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 class MainActivity : AppCompatActivity(),onSaveClicked {
@@ -82,7 +78,7 @@ lateinit var clRecAdapter: clRecAdapter
 
 
         binding.classesRec.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        cladapter = Class_drawer_adapter(baseContext)
+        cladapter = Class_drawer_adapter(baseContext,this)
         binding.classesRec.adapter = cladapter
 
         binding.clsAdd.setOnClickListener(View.OnClickListener {
@@ -98,7 +94,7 @@ lateinit var clRecAdapter: clRecAdapter
         binding.clRec.adapter=clRecAdapter
         binding.clRec.layoutManager=LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
         //create notification channel
-        //
+
         if(Build.VERSION.SDK>=Build.VERSION_CODES.O.toString()){
             val name="2003" as CharSequence
 //
@@ -218,6 +214,23 @@ val ydata=ArrayList<Entry>()
         clRecAdapter.edit()
     }
 
+    override fun displayDialog(position:Int) {
+        MaterialAlertDialogBuilder(c,R.style.MaterialAlertDialog_App)
+            .setTitle("Delete")
+            .setMessage("Are you sure you want to delete this class ?")
+            .setNeutralButton("Cancel"){dialog , which ->
+                dialog.dismiss()
+            }
+            .setNegativeButton("No") { dialog, which ->
+                dialog.dismiss()
+            }
+            .setPositiveButton("Yes") { dialog, which ->
+               cladapter.delete(position)
+                saveClicked()
+            }
+            .show()
+
+    }
 
 
         inner class MyAxisFormatter : IndexAxisValueFormatter() {

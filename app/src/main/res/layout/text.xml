@@ -21,6 +21,13 @@ android:orientation="horizontal"
         android:textSize="20sp"
         android:layout_margin="10dp"
         />
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/trash_2"
+        android:id="@+id/del_cls"
+        />
 
     </LinearLayout>
 
