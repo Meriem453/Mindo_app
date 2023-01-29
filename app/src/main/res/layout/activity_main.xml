@@ -6,130 +6,135 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/top"
+    android:background="@color/white"
     >
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/main_toolbar"
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/main_blue"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toTopOf="parent"
+           android:src="@drawable/_0190110_233327_1"
+            android:layout_margin="10dp"/>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="menuClick"
+            android:layout_margin="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="menuClick"
-                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/reorder_24px"/>
 
 
-                android:textSize="20sp"
-                tools:layout_editor_absoluteX="76dp"
-                tools:layout_editor_absoluteY="13dp"
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+           android:layout_margin="10dp"
 
-                />
+            android:contentDescription="notifications"
 
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_margin="10dp"
+            android:onClick="notifClick"
+            app:layout_constraintStart_toEndOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="parent"
+      android:src="@drawable/group_2"
+            />
 
-                app:srcCompat="@android:drawable/ic_menu_search"
-                tools:layout_editor_absoluteX="48dp"
-                tools:layout_editor_absoluteY="28dp" />
 
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="25dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-
-                android:contentDescription="notifications"
-
-                android:onClick="notifClick"
-                app:srcCompat="@android:drawable/ic_popup_reminder" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/lineChart2"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView3"
+        <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/clipboard"
-            android:fontFamily="@font/alef"
-            android:text="@string/today_homework"
-            android:textColor="@color/main_blue"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@+id/lineChart2" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView10">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/hw_rec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        </androidx.recyclerview.widget.RecyclerView>
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/library"
-            android:fontFamily="@font/alef"
-            android:gravity="center_vertical"
-            android:text="@string/today_courses"
-            android:textColor="@color/main_blue"
-            android:textSize="20sp"
-            android:textStyle="bold"
 
-            app:layout_constraintTop_toBottomOf="@+id/hw_rec" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/cr_rec"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChart2"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="10dp"
+                    >
 
-            android:layout_weight="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text">
+                </com.github.mikephil.charting.charts.LineChart>
 
-        </androidx.recyclerview.widget.RecyclerView>
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/classes"
+                    android:fontFamily="@font/alef"
+
+                    android:textColor="@color/main_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cl_rec"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/clipboard"
+                    android:fontFamily="@font/alef"
+                    android:text="@string/today_homework"
+                    android:textColor="@color/main_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/hw_rec"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_marginVertical="20dp"
+                    android:layout_marginTop="16dp">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/library"
+                    android:fontFamily="@font/alef"
+                    android:gravity="center_vertical"
+                    android:text="@string/today_courses"
+                    android:textColor="@color/main_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cr_rec"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:layout_marginVertical="20dp"
+                    android:layout_weight="1"></androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </ScrollView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

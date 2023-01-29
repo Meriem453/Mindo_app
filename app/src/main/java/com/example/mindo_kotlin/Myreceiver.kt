@@ -9,7 +9,7 @@ import androidx.core.app.NotificationManagerCompat
 
 class Myreceiver(var c:Context,var intent :Intent) : BroadcastReceiver() {
     override fun onReceive(p0: Context?, p1: Intent?) {
-        val tnt=Intent(c,Welcome::class.java)
+        val tnt=Intent(c,MainActivity::class.java)
         //
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK )
         //

@@ -19,4 +19,9 @@
         <item name="fullscreenTextColor">@color/main_red</item>
     </style>
 
+    <style name="Theme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash</item>
+
+    </style>
+
 </resources>

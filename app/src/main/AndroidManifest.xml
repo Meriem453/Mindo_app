@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mindo_kotlin"
         tools:targetApi="31">
+
         <activity
             android:name=".MyMusics"
             android:exported="false">
@@ -44,7 +45,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".MyCourses"
             android:exported="false">
@@ -59,22 +59,18 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
         <activity
-            android:name=".Welcome"
-            android:exported="true">
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -84,7 +80,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <receiver android:name=".Myreceiver"/>
+        <receiver android:name=".Myreceiver" />
     </application>
 
 </manifest>

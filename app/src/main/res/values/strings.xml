@@ -42,4 +42,5 @@
     <string name="resources">Resources</string>
     <string name="channel_name">first_channel</string>
     <string name="channel_description">notification_channel</string>
+    <string name="classes">Classes</string>
 </resources>

@@ -53,6 +53,20 @@ data class Class(
 )
 
 
+/*@Entity
+data class Progress(
+
+    @PrimaryKey val pid:Int,
+    @ColumnInfo (name="Sun") val Sun:Int,
+    @ColumnInfo (name="Mon") val Mon:Int,
+    @ColumnInfo (name = "Tus") val Tus:Int,
+    @ColumnInfo (name="Wed")val Wed:Int,
+    @ColumnInfo (name="Thu")val Thu:Int,
+    @ColumnInfo(name = "Fri")val Fri:Int,
+    @ColumnInfo(name = "Sat")val Sat:Int
+
+)*/
+
 @Dao
 interface CourseDao{
     @Query("SELECT * FROM course")
@@ -134,6 +148,39 @@ interface classDao{
    /*@Query("UPDATE class SET nbr=(:nbr) WHERE cls=(:cls)")
    fun editClass(nbr: Int,cls: String)*/
 }
+
+/*@Dao
+interface progDao{
+    @Query("UPDATE progress SET Sun=(:value)")
+    fun setSunProgress(column:String,value:String)
+
+    @Query("UPDATE progress SET Mon=(:value)")
+    fun setMonProgress(column:String,value:String)
+
+    @Query("UPDATE progress SET Tus=(:value)")
+    fun setThuProgress(column:String,value:String)
+
+    @Query("UPDATE progress SET Wed=(:value)")
+    fun setWedProgress(column:String,value:String)
+
+    @Query("UPDATE progress SET Thu=(:value)")
+    fun setThiProgress(column:String,value:String)
+
+    @Query("UPDATE progress SET Fri=(:value)")
+    fun setFriProgress(column:String,value:String)
+
+    @Query("UPDATE progress SET Sat=(:value)")
+    fun setSatProgress(column:String,value:String)
+
+    @Insert
+    fun insert(Progress:Progress)
+
+    @Query("UPDATE progress SET Sun=0,Mon=0,Tus=0,Wed=0,Thu=0,Fri=0,Sat=0")
+    fun Insialize()
+
+
+}*/
+
 @Database(entities = [Course::class,Task::class,Goal::class,Resources::class,com.example.mindo_kotlin.Class::class], version = 1)
 abstract class AppDatabase(): RoomDatabase(){
     abstract fun courseDao():CourseDao
@@ -141,6 +188,7 @@ abstract class AppDatabase(): RoomDatabase(){
     abstract fun goalDao():goalDao
     abstract fun resourceDao():resourceDao
     abstract fun classDao():classDao
+    //abstract fun progressDao():progDao
 
     companion object DataBase{
         fun getInstance(c: Context) :AppDatabase{
