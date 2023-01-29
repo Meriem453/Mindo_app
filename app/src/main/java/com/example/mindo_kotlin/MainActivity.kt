@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity(),onSaveClicked {
     lateinit var c:Context
     val CHANNEL_ID="2003"
 lateinit var cladapter:Class_drawer_adapter
+lateinit var clRecAdapter: clRecAdapter
 
 
 
@@ -93,7 +94,8 @@ lateinit var cladapter:Class_drawer_adapter
 
         })
         //Classes rec
-        binding.clRec.adapter=cladapter
+        clRecAdapter=clRecAdapter(baseContext)
+        binding.clRec.adapter=clRecAdapter
         binding.clRec.layoutManager=LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
         //create notification channel
         //
@@ -122,7 +124,7 @@ lateinit var cladapter:Class_drawer_adapter
         }
 //Line Chart Settings
        val d= Description()
-           d.text="Random vlues"
+           d.text="My progress"
 binding.lineChart2.description=d
 val ydata=ArrayList<Entry>()
         val e=Entry(0f,15f)
@@ -149,9 +151,9 @@ val ydata=ArrayList<Entry>()
 
 
 
-        val lds=LineDataSet(ydata,"Random Values")
-        lds.lineWidth = 3f
-        lds.valueTextSize = 15f
+        val lds=LineDataSet(ydata," My progress (Tasks + Goals) ")
+        lds.lineWidth = 5f
+        lds.valueTextSize = 10f
         lds.mode = LineDataSet.Mode.HORIZONTAL_BEZIER
         lds.color = ContextCompat.getColor(this, R.color.main_red)
         lds.valueTextColor = ContextCompat.getColor(this, R.color.main_red)
@@ -159,8 +161,8 @@ val ydata=ArrayList<Entry>()
 
 
         val ld=LineData(lds)
-        ld.setValueTextSize(13f)
-        ld.setValueTextColor(Color.BLACK)
+        ld.setValueTextSize(15f)
+        ld.setValueTextColor(R.color.main_blue)
 
         with(binding.lineChart2){
             animateX(1200, Easing.EaseInExpo)
@@ -213,6 +215,7 @@ val ydata=ArrayList<Entry>()
 
     override fun saveClicked() {
         cladapter.edit()
+        clRecAdapter.edit()
     }
 
 

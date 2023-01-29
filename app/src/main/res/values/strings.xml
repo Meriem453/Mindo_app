@@ -7,8 +7,8 @@
     <string name="cd_main_courses_card_duration">Duration</string>
     <string name="hint_start">Start</string>
     <string name="hint_end">End</string>
-    <string name="today_homework">Toaday s tasks</string>
-    <string name="today_courses">Toaday s courses</string>
+    <string name="today_homework">Toaday\'s tasks</string>
+    <string name="today_courses">Toaday\'s courses</string>
     <string name="page_goals">Goals</string>
     <string name="page_homeworks">Tasks</string>
     <string name="page_home">Home</string>
@@ -43,4 +43,5 @@
     <string name="channel_name">first_channel</string>
     <string name="channel_description">notification_channel</string>
     <string name="classes">Classes</string>
+    <string name="wlcm">Welcome back</string>
 </resources>
