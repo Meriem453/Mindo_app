@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="79dp"
     android:layout_margin="10dp"
-
     >
 
     <TextView
