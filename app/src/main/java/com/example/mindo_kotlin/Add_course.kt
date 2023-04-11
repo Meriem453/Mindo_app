@@ -42,6 +42,7 @@ class Add_course (var c :Context,var onsaveclicked:onSaveClicked,var Class:Strin
         val timeend=view.findViewById<TextView>(R.id.addcourse_timeend)
         val date=view.findViewById<TextView>(R.id.addcr_date)
 
+
         val alarm=view.findViewById<Switch>(R.id.addcourse_alarm)
         val close=view.findViewById<ImageView>(R.id.addcourse_close)
 

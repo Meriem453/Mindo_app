@@ -46,7 +46,9 @@ class Class_drawer_adapter (var c:Context,var clicked: onSaveClicked): RecyclerV
         }
         holder.img.setOnClickListener(View.OnClickListener {
 
-           clicked.displayDialog(position)
+           //clicked.displayDialog(position)
+            delete(position)
+            edit()
 
         })
     }
